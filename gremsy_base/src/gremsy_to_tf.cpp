@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 	ros::spinOnce();
 	loop_rate.sleep();
   }
-
+  delete br;
 }
 
 void gremsy_cb(const geometry_msgs::Quaternion& msg){
