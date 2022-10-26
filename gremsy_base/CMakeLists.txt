@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 ## Find catkin macros and libraries
 find_package(catkin REQUIRED COMPONENTS
         roscpp
+		tf
         tf2
         tf2_geometry_msgs
         dynamic_reconfigure
@@ -34,6 +35,9 @@ include_directories(
 )
 
 set(SOURCES src/ros_gremsy.cpp src/gSDK_Linux/src/serial_port.cpp src/gSDK_Linux/src/gimbal_interface.cpp)
+
+add_executable(gremsy_tf_node src/gremsy_to_tf.cpp)
+target_link_libraries(gremsy_tf_node ${catkin_LIBRARIES} )
 
 add_executable(GimbalNode ${SOURCES})
 
