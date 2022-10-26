@@ -27,10 +27,10 @@ int main(int argc, char** argv)
 void gremsy_cb(const geometry_msgs::Quaternion& msg){
     tf::Transform transform;
     transform.setOrigin(tf::Vector3(0.0, 0.0, 0.2));
-    tf::Quaternion q(msg.x, msg.y, msg.z, msg.w);
+    tf::Quaternion q(-msg.y, -msg.x, msg.w, msg.z);
     transform.setRotation(q);
 	br->sendTransform(tf::StampedTransform(transform, ros::Time::now(),
                                           "map",
-                                          "/ros_gremsy/tool"));
+                                          "velodyne"));
 }
 
