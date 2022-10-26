@@ -2,4 +2,5 @@
     <node pkg="gremsy_base" type="GimbalNode" name="gremsy_base" output="screen">
         <rosparam command="load" file="$(find gremsy_base)/config/config.yaml"/>
     </node>
+    <node pkg="gremsy_base" type="gremsy_tf_node" name="gremsy_to_tf" output="screen"/>
 </launch>
